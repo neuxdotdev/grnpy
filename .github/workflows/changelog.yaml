@@ -20,11 +20,11 @@ jobs:
 
       - name: Generate changelog
         run: |
-          git log --pretty=format:"%h - %s (%ad)" --date=short > changelog.txt
+          git log > changelog
 
       - name: Commit changes
         run: |
-          git add changelog.txt
+          git add changelog
           git commit -m "Update changelog [$(date +'%Y-%m-%d %H:%M:%S')]" || echo "No changes to commit"
           git push
         env:
