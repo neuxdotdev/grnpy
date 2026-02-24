@@ -1,0 +1,20 @@
+commit a9228e2f4576de97b193af4197ad03832b34b797
+Author: neuxdotdev <neuxdev1@gmail.com>
+Date:   Tue Feb 24 23:47:48 2026 +0700
+
+    docs: add license
+
+commit 158ecda9ef172de36c0402a5eae4173b9cddf651
+Author: neuxdotdev <neuxdev1@gmail.com>
+Date:   Tue Feb 24 23:41:50 2026 +0700
+
+    feat: initialize librgrn project structure with core security features
+    
+    - Add Cargo.toml with dependencies for bcrypt, chrono, jsonwebtoken, rand, rsa, serde, serde_json, thiserror, and uuid.
+    - Create Makefile for build automation.
+    - Add changelog, license, and readme files.
+    - Implement core security module with submodules for authentication and cryptography.
+    - Add JWT token generation and verification functionality.
+    - Introduce error handling with custom error types.
+    - Implement internal validation functions for security-related checks.
+    - Establish prelude module for easier access to core functionalities.
