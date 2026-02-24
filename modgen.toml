@@ -1,5 +1,0 @@
-ignore = ["target", ".git", "tests", "benches"]
-reexport = true
-marker_start = "// modgen:begin auto-generated"
-marker_end = "// modgen:end auto-generated"
-hash_algo = "Blake3"

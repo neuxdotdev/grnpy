@@ -8,18 +8,18 @@ use std::collections::HashMap;
 use uuid::Uuid;
 const DEFAULT_EXPIRES_IN: i64 = 3600;
 #[derive(Debug, Serialize, Deserialize, Clone)]
-struct Claims {
-    sub: String,
-    iss: String,
-    iat: i64,
-    exp: i64,
+pub struct Claims {
+    pub sub: String,
+    pub iss: String,
+    pub iat: i64,
+    pub exp: i64,
     #[serde(skip_serializing_if = "Option::is_none")]
-    roles: Option<Vec<String>>,
+    pub roles: Option<Vec<String>>,
     #[serde(skip_serializing_if = "Option::is_none")]
-    scope: Option<String>,
-    jti: String,
+    pub scope: Option<String>,
+    pub jti: String,
     #[serde(flatten)]
-    extra: HashMap<String, serde_json::Value>,
+    pub extra: HashMap<String, serde_json::Value>,
 }
 pub struct JwtBuilder {
     count: usize,
