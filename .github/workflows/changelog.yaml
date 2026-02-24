@@ -3,7 +3,7 @@ name: Auto Changelog
 on:
   push:
     branches:
-      - main
+      - master
 
 jobs:
   update-changelog:
@@ -20,12 +20,15 @@ jobs:
 
       - name: Generate changelog
         run: |
-          git log > changelog
+          # Format rapi: hash, date, message
+          git log --pretty=format:"%h %ad %s" --date=short > changelog
 
-      - name: Commit changes
+      - name: Commit and push changes
         run: |
+          # tarik dulu kalau ada commit baru di main supaya push tidak gagal
+          git pull --rebase origin main || echo "Nothing to pull"
           git add changelog
-          git commit -m "Update changelog [$(date +'%Y-%m-%d %H:%M:%S')]" || echo "No changes to commit"
-          git push
+          git diff --cached --quiet || git commit -m "Update changelog [$(date +'%Y-%m-%d %H:%M:%S')]"
+          git push origin main
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
