@@ -7,7 +7,7 @@ edition = "2024"
 bcrypt = "0.18.0"
 chrono = "0.4.44"
 jsonwebtoken = "10.3.0"
-rand = "0.8"
+rand = "0.10.0"
 rsa = "0.9.10"
 serde = { version = "1.0.228", features = ["derive"] }
 serde_json = "1.0.149"
