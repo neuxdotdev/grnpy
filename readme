@@ -1,0 +1,3 @@
+librgrn
+
+librgrn is a modular Rust library for random data generation and a security toolkit, inspired by [generate-random.org](https://generate-random.org). This library is designed to be **modular, scalable, and maintainable**, suitable for backend implementations, cryptography, and API integrations. It provides a comprehensive set of features for generating random data, managing cryptographic keys, and handling security-related tasks.
