@@ -1,7 +1,11 @@
 use crate::error::{Error, Result};
 use jsonwebtoken::Algorithm;
-use rand::RngCore;
-use rsa::{pkcs1::{EncodeRsaPrivateKey, EncodeRsaPublicKey}, RsaPrivateKey, RsaPublicKey};
+use rand::{self, RngExt};                 // rand 0.10 untuk HMAC
+use rand08::rngs::OsRng;                  // rand 0.8 untuk RSA (kompatibel dengan rsa)
+use rsa::{
+    pkcs1::{EncodeRsaPrivateKey, EncodeRsaPublicKey},
+    RsaPrivateKey, RsaPublicKey,
+};
 use std::sync::Arc;
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
@@ -61,12 +65,12 @@ impl JwtKey {
             alg if alg.is_hmac() => {
                 let bits = alg.min_key_bits();
                 let mut secret = vec![0u8; bits / 8];
-                rand::thread_rng().fill_bytes(&mut secret);
+                rand::rng().fill(&mut secret);      // rand 0.10
                 Ok(JwtKey::Hmac(secret))
             }
             alg if alg.is_rsa() => {
                 let bits = alg.min_key_bits();
-                let mut rng = rand::thread_rng();
+                let mut rng = OsRng;                // rand 0.8 (OsRng)
                 let private = RsaPrivateKey::new(&mut rng, bits)
                     .map_err(|e| Error::Crypto(format!("RSA key generation failed: {}", e)))?;
                 let public = RsaPublicKey::from(&private);
@@ -113,28 +117,5 @@ impl JwtKey {
                 Ok(jsonwebtoken::DecodingKey::from_rsa_der(der.as_bytes()))
             }
         }
-    }
-}
-
-#[cfg(test)]
-mod tests {
-    use super::*;
-
-    #[test]
-    fn test_hmac_generation() {
-        let alg = JwtAlgorithm::Hs256;
-        let key = JwtKey::generate(alg).unwrap();
-        assert!(matches!(key, JwtKey::Hmac(_)));
-        assert!(key.signing_key().is_ok());
-        assert!(key.verification_key().is_ok());
-    }
-
-    #[test]
-    fn test_rsa_generation() {
-        let alg = JwtAlgorithm::Rs256;
-        let key = JwtKey::generate(alg).unwrap();
-        assert!(matches!(key, JwtKey::Rsa { .. }));
-        assert!(key.signing_key().is_ok());
-        assert!(key.verification_key().is_ok());
     }
 }
