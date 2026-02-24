@@ -1,1 +1,5 @@
-d0ac72f 2026-02-25 ci: add changelog automation
+commit f8a6b614c5f194f18195bf15d5571bd4034da993
+Author: neuxdotdev <neuxdev1@gmail.com>
+Date:   Wed Feb 25 00:12:42 2026 +0700
+
+    Merge branch 'master' of https://github.com/neuxdotdev/librgrn
