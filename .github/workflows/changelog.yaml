@@ -24,7 +24,7 @@ jobs:
       - run: |
           git fetch --all
           git reset --hard origin/master
-          git log --pretty=format:"%h %ad %an %s" --date=short > changelog
+          git log --reverse --pretty=format:"* [%h] %ad | %an | %s" --date=short > changelog
 
       - run: |
           git add changelog
