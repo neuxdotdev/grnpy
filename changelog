@@ -33,3 +33,6 @@
 * [bdc4ab1] 2026-02-24 | CI Bot | Update changelog [2026-02-24 19:23:15]
 * [309ed1e] 2026-02-25 | neuxdotdev | chore: remove deprecated files and clean up project structure before migration to javascripts
 * [0302ef8] 2026-02-25 | neuxdotdev | Merge branch 'master' of https://github.com/neuxdotdev/grnpy
+* [c09ed8d] 2026-02-24 | CI Bot | Update changelog [2026-02-24 23:35:07]
+* [7c5f356] 2026-02-25 | neuxdotdev | chore: rename project to libgrnd
+* [40fae69] 2026-02-25 | neuxdotdev | Merge branch 'master' of https://github.com/neuxdotdev/libgrnd
