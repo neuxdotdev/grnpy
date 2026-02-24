@@ -20,12 +20,11 @@ jobs:
           git config user.email "ci@neuxdotdev.my.id"
 
       - run: |
-          git log --pretty=format:"%h %ad %s" --date=short > changelog
+          git log > changelog
 
       - run: |
-          git pull --rebase origin master || echo "Nothing to pull"
           git add changelog
-          git diff --cached --quiet || git commit -m "Update changelog [$(date +'%Y-%m-%d %H:%M:%S')]"
+          git commit -m "Update changelog [$(date +'%Y-%m-%d %H:%M:%S')]"
           git push origin master
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
