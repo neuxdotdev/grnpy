@@ -1,0 +1,52 @@
+{
+  "compilerOptions": {
+    "target": "ES2022",                        // Modern enough untuk class fields, private, top-level await
+    "lib": ["ES2022", "DOM"],                  // Standard library + DOM untuk console dll
+    "module": "NodeNext",                      // Modern Node.js ESM
+    "moduleResolution": "NodeNext",
+    "verbatimModuleSyntax": true,
+    "moduleDetection": "force",
+    "allowImportingTsExtensions": false,
+    "resolveJsonModule": false,
+    "allowArbitraryExtensions": false,
+    "rootDir": "src",
+    "outDir": "dist",
+    "declaration": true,                        // generate .d.ts untuk library
+    "declarationMap": true,
+    "sourceMap": true,
+    "removeComments": true,
+    "newLine": "lf",
+
+    // --- Strict mode ---
+    "strict": true,
+    "alwaysStrict": true,
+    "noImplicitAny": true,
+    "strictNullChecks": true,
+    "strictBindCallApply": true,
+    "strictFunctionTypes": true,
+    "strictPropertyInitialization": true,
+    "noImplicitOverride": false,               // harus false supaya bisa pakai `override` keyword
+    "exactOptionalPropertyTypes": true,
+    "useUnknownInCatchVariables": true,
+
+    // --- Safety & correctness ---
+    "noImplicitReturns": true,
+    "noFallthroughCasesInSwitch": true,
+    "noUncheckedIndexedAccess": true,
+    "noPropertyAccessFromIndexSignature": true,
+    "noImplicitThis": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "allowUnreachableCode": false,
+    "allowUnusedLabels": false,
+
+    // --- Interop ---
+    "esModuleInterop": true,
+    "forceConsistentCasingInFileNames": true,
+    "isolatedModules": true,
+    "skipLibCheck": true,
+    "useDefineForClassFields": true
+  },
+  "include": ["src/**/*"],                     // semua file TS di src
+  "exclude": ["node_modules", "dist"]
+}

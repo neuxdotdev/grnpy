@@ -1,4 +1,4 @@
 libgrnd
 
-libgrnd is a modular python library for random data generation and a security toolkit, inspired by <https://generate-random.org>. This library is designed to be modular, scalable, and maintainable, suitable for backend implementations, cryptography, and API integrations. It provides a comprehensive set of features for generating random data, managing cryptographic keys, and handling security-related tasks
+libgrnd is a modular typesrcipts library for random data generation and a security toolkit, inspired by <https://generate-random.org>. This library is designed to be modular, scalable, and maintainable, suitable for backend implementations, cryptography, and API integrations. It provides a comprehensive set of features for generating random data, managing cryptographic keys, and handling security-related tasks
 .

@@ -1,0 +1,32 @@
+{
+  "name": "librgrn",
+  "version": "1.0.0",
+  "description": "implementation of generate-random.org into pure python libraryResources",
+  "keywords": [
+    "generate",
+    "random",
+    "generate-random",
+    "binding",
+    "libary",
+    "cryptography"
+  ],
+  "homepage": "https://github.com/neuxdotdev/libgrnd#readme",
+  "bugs": {
+    "url": "https://github.com/neuxdotdev/libgrnd/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/neuxdotdev/libgrnd.git"
+  },
+  "license": "AGPL-3.0",
+  "author": "neuxdotdev",
+  "type": "module",
+  "main": "dist/lib.js",
+  "scripts": {
+    "test": "node dist/lib.js"
+  },
+  "devDependencies": {
+    "@types/node": "^25.3.0",
+    "typescript": "^5.9.3"
+  }
+}
